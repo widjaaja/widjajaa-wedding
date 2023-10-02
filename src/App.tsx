@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+// import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home/Home';
+import CoverPages from "./components/CoverPages/CoverPages";
+import NavbarPages from "./components/NavbarPages/NavbarPages";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface AppState {
+  activePages: string;
 }
 
-export default App;
+const AppRouter = () => {
+  const [activePages, setActivePages] = useState<string>("");
+
+  return (
+    <div className='mainContainer'>
+      <CoverPages name={'name'} />
+      <div className='content'>
+        <Home name={'name'}/>
+        <NavbarPages name={'name'}/>
+      </div>
+
+    </div>
+  );
+};
+
+const MainComponent: React.FC<AppState> = ({ activePages }) => {
+  switch(activePages) {
+
+    case "one":   return <Home name={'name'}/>;
+    case "two":   return <Home name={'name'}/>;
+    case "three": return <Home name={'name'}/>;
+    case "four":  return <Home name={'name'}/>;
+
+    default:      return <Home name={'name'}/>;
+  }
+}
+
+export default AppRouter;
