@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import NavbarPages from './NavbarPages';
+import Event from './Event';
 
 test('renders', () => {
-
+  render(<Event name={'Event'} />);
 });

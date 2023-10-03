@@ -1,6 +1,7 @@
 import React, { useEffect  } from 'react';
+import { motion } from "framer-motion";
+
 import classes from './Home.module.scss';
-import { motion } from "framer-motion"
 
 interface HomeProps {
   name: string;
@@ -18,7 +19,13 @@ const Home: React.FC<HomeProps> = ({ name }) => {
   }, []);
 
   return (
-    <div className={classes.HomeContainer}>
+    <motion.div 
+      className={classes.HomeContainer}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 2 }}
+    >
       <div className={classes.WidgetContainer}>
         <div className={classes.bgMain}></div>
         <div className={classes.populated}>
@@ -64,7 +71,7 @@ const Home: React.FC<HomeProps> = ({ name }) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

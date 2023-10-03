@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import NavbarPages from './NavbarPages';
+import Bride from './Bride';
 
 test('renders', () => {
-
+  render(<Bride name={'Bride'} />);
 });

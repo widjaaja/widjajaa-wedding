@@ -1,0 +1,19 @@
+.LocationContainer {
+    width: 480px;
+    height: calc(100dvh - 64px);
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    background-color: #FBF5F2;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+@media only screen and (max-width: 1024px) {
+    .LocationContainer {
+      width: 100% !important;
+    }
+}

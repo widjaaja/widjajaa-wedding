@@ -1,0 +1,124 @@
+.BrideContainer {
+    width: 480px;
+    height: calc(100dvh - 64px);
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    background-color: #FBF5F2;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+
+    .WidgetContainer {
+        position: relative;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        .bgMain {
+            background-size: cover;
+            background-image: url(https://invetin.id//wp-content/uploads/2021/02/bg-main-14.png);
+            width: 100%;
+            height: 100%;
+        }
+        .bgBlur {
+            position: absolute;
+            background-color: #fff;
+            opacity: .1;
+            transform: none!important;
+            width: 100%;
+            height: 100%;
+        }
+        .populated {
+            position: absolute;
+            margin: 0;
+            display: flex;
+            flex: 1 1;
+            width: 100%;
+            height: 100%;
+            .widgetWrap {
+                display: flex;
+                flex-direction: column;
+                align-content: center;
+                align-items: center;
+                position: relative;
+                align-self: center;
+                width: 100%;
+                padding: 2.5rem 2rem;
+                
+                .bismillah {
+                    width: 140px;
+                    filter: invert(43%) sepia(59%) saturate(357%) hue-rotate(357deg) brightness(97%) contrast(89%);
+                    margin-bottom: .25rem;
+                }
+                span {
+                    text-align: center;
+                    color: #635a55;
+                    font-size: .75rem;
+                    line-height: 1.4em;
+                    max-width: 320px;
+                    &.textOpen {
+                        font-style: italic;
+                    }
+                }
+
+                .profileContent {
+                    display: flex;
+                    margin: .5rem 0 1rem;
+                    .profilePic {
+                        width: 4.5rem;
+                        height: auto;
+                        margin: .5rem 1rem;
+                    }
+                }
+                .profilePerson {
+                    display: flex;
+                    flex-direction: column;
+                    h3 {
+                        text-align: center;
+                        font-family: "Corinthia", Sans-serif;
+                        font-size: 2rem;
+                        font-weight: normal;
+                        line-height: 1em;
+                        color: #957443;
+                        margin: 0;
+                    }
+                    span {
+                        font-size: .75rem;
+                        max-width: 240px;
+                        margin: .25rem;
+                    }
+                    .contact {
+                        cursor: pointer;
+                        color: #957443;
+                        font-size: .8rem;
+                        font-style: italic;
+                        margin: 0;
+                        margin-bottom: .25rem;
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                        i {
+                            margin: 0;
+                            font-size: .8rem;
+                            margin-right: .25rem;
+                        }
+                    }
+                }
+                i {
+                    margin: .75rem 0;
+                    font-size: 2rem;
+                    color: #957443;
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 1024px) {
+    .BrideContainer {
+      width: 100% !important;
+    }
+}
