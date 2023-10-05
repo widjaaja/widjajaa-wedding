@@ -1,6 +1,6 @@
 
 .HomeContainer {
-    width: 480px;
+    width: auto;
     height: calc(100dvh - 64px);
     position: relative;
     display: -webkit-box;
@@ -80,8 +80,23 @@
     }
 }
 
-@media only screen and (max-width: 1024px) {
+/* Mobile devices */
+@media only screen and (max-width: 767px) {
     .HomeContainer {
-      width: 100% !important;
+        width: 100% !important;
+    }
+}
+  
+/* Tablets */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .HomeContainer {
+        width: 100% !important;
+    }
+}
+
+/* Desktops and larger screens */
+@media only screen and (min-width: 1024px) {
+    .HomeContainer {
+        width: 480px !important;
     }
 }
