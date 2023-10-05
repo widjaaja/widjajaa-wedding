@@ -44,10 +44,9 @@ const Bride: React.FC<BrideProps> = ({ name }) => {
         <div className={classes.bgBlur}></div>
         <div className={classes.populated}>
           <div className={classes.widgetWrap}>
-            {/* <BouncingBall/> */}
             <img className={classes.bismillah} src="https://invetin.id/wp-content/uploads/2020/12/bismillah.png" alt="" />
-            <span className={classes.textOpen}>Assalamu’alaikum Warahmatullahi Wabarakatuh</span>
-            <span>Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta’ala, insyaaAllah kami akan menyelenggarakan acara pernikahan :</span>
+            <span className={classes.title}>Assalamu’alaikum Warahmatullahi Wabarakatuh</span>
+            <span className={classes.desc}>Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta’ala, insyaaAllah kami akan menyelenggarakan acara pernikahan :</span>
             <div className={classes.profileContent}>
               <motion.img 
                 animate={{ y: [-5, 5] }}
