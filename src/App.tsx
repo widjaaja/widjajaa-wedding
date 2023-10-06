@@ -4,6 +4,9 @@ import Home from './pages/Home/Home';
 import Bride from './pages/Bride/Bride';
 import Event from './pages/Event/Event';
 import Location from './pages/Location/Location';
+import Protocol from './pages/Protocol/Protocol';
+import Gift from './pages/Gift/Gift';
+
 import CoverPages from "./components/CoverPages/CoverPages";
 import NavbarPages from "./components/NavbarPages/NavbarPages";
 
@@ -37,6 +40,8 @@ const MainComponent: React.FC<AppState> = ({ activePages }) => {
     case "brides":   return <Bride name={'name'}/>;
     case "event": return <Event name={'name'}/>;
     case "location":  return <Location name={'name'}/>;
+    case "protocol":  return <Protocol name={'name'}/>;
+    case "gifts":  return <Gift name={'name'}/>;
 
     default:      return <Home name={'name'}/>;
   }
