@@ -16,7 +16,7 @@ const CoverPages: React.FC<CoverPagesProps> = ({ name, isAnimate, onInvitationCl
 
   const asideAttr = isMobileView && {
     initial: { display: 'flex', },
-    animate: { display: "none",},
+    animate: { display: !isAnimate ? "flex" : "none",},
     transition: { duration: 1, delay: 3 },
   };
 
@@ -36,7 +36,7 @@ const CoverPages: React.FC<CoverPagesProps> = ({ name, isAnimate, onInvitationCl
   }, []);
 
   return (
-    <motion.aside>
+    <motion.aside {...asideAttr}>
       {!isMobileView ?
         <CoverPagesDesktop name={'desktop'} isAnimate={isAnimate} onInvitationClick={onInvitationClick} />
         :
