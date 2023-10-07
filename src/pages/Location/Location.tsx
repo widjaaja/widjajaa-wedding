@@ -50,6 +50,10 @@ const Location: React.FC<LocationProps> = ({ name }) => {
             <h3>Peta Lokasi Acara</h3>
             <span className={classes.title}>—  Masjid As-Salaam —</span>
             <span>Griya Serdang Indah Blok E6, Margatani, Kramatwatu, Kabupaten Serang 42161</span>
+            <button className={classes.btnExpand}>
+              <i className="fa-solid fa-map-location-dot"></i>
+              <span>Buka Maps</span>
+            </button>
           </div>
         </div>
 
