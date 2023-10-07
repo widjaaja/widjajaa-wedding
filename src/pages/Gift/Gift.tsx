@@ -1,4 +1,5 @@
 import React, { useEffect  } from 'react';
+import { motion } from "framer-motion";
 
 import classes from './Gift.module.scss';
 
@@ -18,7 +19,13 @@ const Gift: React.FC<GiftProps> = ({ name }) => {
   }, []);
 
   return (
-    <div className={classes.GiftContainer}>
+    <motion.div 
+      className={classes.GiftContainer}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 2 }}
+    >
       <div className={classes.bgMain}></div>
       <div className={classes.bgBlur}></div>
       <div className={classes.populated}>
@@ -33,10 +40,17 @@ const Gift: React.FC<GiftProps> = ({ name }) => {
             <span>Wassalamu’alaikum Warahmatullahi Wabarakatuh Kami yang berbahagia,</span>
             <span className={classes.bridesName}>Fulan & Fulanah</span>
             <span>Kel. Bpk. Abu Fulan & Ibu Fulanah <br/> Kel. Bpk Ahmad Fulan & Ibu Fulanah</span>
+            <button className={classes.btnExpand}>
+              <i className="fa-duotone fa-wallet"></i>
+              <span>Amplop Digital</span>
+            </button>
+          </div>
+          <div className={classes.bottomContent}>
+            <span>Design with <i className="fa-solid fa-heart"></i> by <b>Adjie Wijaya Kusuma</b></span>
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

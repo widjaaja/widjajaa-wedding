@@ -1,5 +1,7 @@
 import React from 'react';
 import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api";
+import { motion } from "framer-motion";
+
 import classes from './Location.module.scss';
 
 interface LocationProps {
@@ -25,13 +27,19 @@ const Location: React.FC<LocationProps> = ({ name }) => {
   };
 
   return (
-    <div className={classes.LocationContainer}>
+    <motion.div
+     className={classes.LocationContainer}      
+     initial={{ opacity: 0 }}
+     animate={{ opacity: 1 }}
+     exit={{ opacity: 0 }}
+     transition={{ duration: 2 }}
+    >
       <div className={classes.bgMain}></div>
       <div className={classes.bgBlur}></div>
       <div className={classes.populated}>
         <div className={classes.widgetWrap}>
           {!isLoaded ? (
-            <h1>Loading...</h1>
+            <LoadingComponent/>
           ) : (
             <GoogleMap
               mapContainerClassName={classes.mapContainer}
@@ -59,8 +67,46 @@ const Location: React.FC<LocationProps> = ({ name }) => {
 
       </div>
 
-    </div>
+    </motion.div>
   );
+}
+
+export const LoadingComponent = () => {
+
+  return (
+    <motion.div className={classes.loadingContent}>
+    <motion.div
+      animate={{ y: [-5, 5] }}
+      transition={{
+        delay: .2,
+        duration: .6, 
+        repeat: Infinity, 
+        repeatType: 'reverse'
+      }}
+      className={classes.circle}
+    ></motion.div>
+    <motion.div
+      animate={{ y: [-5, 5] }}
+      transition={{
+        delay: .4, 
+        duration: .6,  
+        repeat: Infinity, 
+        repeatType: 'reverse'
+      }}
+      className={classes.circle}
+    ></motion.div>
+    <motion.div
+      animate={{ y: [-5, 5] }}
+      transition={{ 
+        delay: .6, 
+        duration: .6, 
+        repeat: Infinity, 
+        repeatType: 'reverse'
+      }}
+      className={classes.circle}
+    ></motion.div>
+  </motion.div>
+  )
 }
 
 export default Location

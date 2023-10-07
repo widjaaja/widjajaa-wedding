@@ -50,6 +50,38 @@
                     font-size: 2rem;
                     font-weight: 700;
                     margin: 0;
+                    margin-bottom: .5rem;
+                }
+
+                .listItem {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    margin-top: 1rem;
+                    .item {
+                        display: flex;
+                        flex-direction: column;
+                        margin: 1rem 1.5rem;
+                        min-width: 130px;
+                        .thumbnail {
+                            display: flex;
+                            justify-content: center;
+                            background-color: #B69889;
+                            width: 70px;
+                            height: 70px;
+                            border-radius: 50%;
+                            margin: 0 auto .25rem;
+                            i {
+                                color: #FBF5F2;
+                                font-size: 2.5rem;
+                                align-self: center;
+                            }
+
+                        }
+                        span {
+                            letter-spacing: unset;
+                        }
+                    }
                 }
             }
 
