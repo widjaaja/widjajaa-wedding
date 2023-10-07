@@ -101,6 +101,11 @@
 @media only screen and (max-width: 767px) {
     .ProtocolContainer {
         width: 100% !important;
+        .listItem {
+            .item {
+                margin: 1rem !important;
+            }
+        }
     }
 }
 
