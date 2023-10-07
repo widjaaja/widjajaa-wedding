@@ -31,29 +31,6 @@ body {
   }
 }
 
-.btnFill{
-	&::before{
-		transition-duration: 0.5s;
-		box-shadow: inset 0 0 0 1px #957443;
-	}
-	&:hover::before{
-		box-shadow: inset 0 0 0 60px #B69889;
-	}
-}
-
-.btnExpand{
-  &::after{
-    box-shadow: inset 0 0 0 1px #B69889;
-  }
-  &::before{
-    background: #957443;
-    box-shadow: inset 0 0 0 60px #B69889;
-  }
-  &:hover::before{
-    box-shadow: inset 0 0 0 1px #B69889;
-  }
-}
-
 @media only screen and (max-width: 767px) {
   .content {
     width: 100% !important;

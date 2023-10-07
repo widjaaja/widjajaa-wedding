@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import classes from './NavbarPages.module.scss';
+import { log } from 'console';
 
 interface NavbarPagesProps {
   onNavClick: (message: string) => void;
@@ -18,40 +19,69 @@ interface NavbarPagesState {
 
 const NavbarPages: React.FC<NavbarPagesProps> = ({ onNavClick, activeNav }) => {
   // Component implementation
-  const journalRef = useRef(null);
-  const handleNavClick = (message: string) => {
+  const dragRef = useRef<any>(null);
+  const scrollRef = useRef<any>(null);
+
+  const showScroll = (e: any) => {
+    const right = e.target.scrollWidth - e.target.scrollLeft === e.target.clientWidth;
+    console.log(`scrollLeft = ${right}`);
+  };
+
+  const handleNavClick = (message: string, pos: string) => {
+    const el = scrollRef.current;
+
+
+
+    switch (pos) {
+      case 'left':
+        el.scrollTo({
+          left: el.scrollRight + 50,
+          behavior: "smooth"
+        });
+        break;
+
+      case 'right':
+          el.scrollTo({
+            left: el.scrollLeft + 100,
+            behavior: "smooth"
+          });
+        break;
+    
+      default:
+        break;
+    }
     onNavClick(message);
   };
 
   useEffect(() => {
-    // Do something when count changes
+
   }, []);
 
   return (
-    <Draggable innerRef={journalRef} rootClass={"drag"}>
+    <Draggable innerRef={dragRef} rootClass={"drag"}>
       {/* <h1>NavbarPages</h1> */}
-        <div className={classes.NavThumbsContainer}>
-          <div onClick={() => handleNavClick('wedding')} className={`${classes.ItemNav} ${activeNav === 'wedding' && classes.Selected}`}>
+        <div ref={scrollRef} className={classes.NavThumbsContainer}>
+          <div onClick={() => handleNavClick('wedding', 'left')} className={`${classes.ItemNav} ${activeNav === 'wedding' && classes.Selected}`}>
             <i className="fa-solid fa-rings-wedding"></i>
             <span>Wedding</span>
           </div>
-          <div onClick={() => handleNavClick('brides')} className={`${classes.ItemNav} ${activeNav === 'brides' && classes.Selected}`}>
+          <div onClick={() => handleNavClick('brides', 'left')} className={`${classes.ItemNav} ${activeNav === 'brides' && classes.Selected}`}>
             <i className="fa-solid fa-heart"></i>
             <span>Brides</span>
           </div>
-          <div onClick={() => handleNavClick('event')} className={`${classes.ItemNav} ${activeNav === 'event' && classes.Selected}`}>
+          <div onClick={() => handleNavClick('event', 'left')} className={`${classes.ItemNav} ${activeNav === 'event' && classes.Selected}`}>
             <i className="fa-solid fa-calendar-days"></i>
             <span>Event</span>
           </div>
-          <div onClick={() => handleNavClick('location')} className={`${classes.ItemNav} ${activeNav === 'location' && classes.Selected}`}>
+          <div onClick={() => handleNavClick('location', 'right')} className={`${classes.ItemNav} ${activeNav === 'location' && classes.Selected}`}>
             <i className="fa-solid fa-map-location-dot"></i>
             <span>Location</span>
           </div>
-          <div onClick={() => handleNavClick('protocol')} className={`${classes.ItemNav} ${activeNav === 'protocol' && classes.Selected}`}>
+          <div onClick={() => handleNavClick('protocol', 'right')} className={`${classes.ItemNav} ${activeNav === 'protocol' && classes.Selected}`}>
             <i className="fa-solid fa-shield-check"></i>
             <span>Protocol</span>
           </div>
-          <div onClick={() => handleNavClick('gifts')} className={`${classes.ItemNav} ${activeNav === 'gifts' && classes.Selected}`}>
+          <div onClick={() => handleNavClick('gifts', 'right')} className={`${classes.ItemNav} ${activeNav === 'gifts' && classes.Selected}`}>
             <i className="fa-solid fa-gifts"></i>
             <span>Gifts</span>
           </div>
@@ -96,7 +126,6 @@ const Draggable: React.FC<DraggableProps> = ({ innerRef, rootClass = "", childre
         const walkY = (y - mouseCoords.current.startY) * 1.5;
         slider.scrollLeft = mouseCoords.current.scrollLeft - walkX;
         slider.scrollTop = mouseCoords.current.scrollTop - walkY;
-        console.log(walkX, walkY)
     }
 
   return (

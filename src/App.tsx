@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect} from 'react';
 // import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Bride from './pages/Bride/Bride';
@@ -16,18 +16,42 @@ interface AppState {
 
 const AppRouter = () => {
   const [activePages, setActivePages] = useState<string>("wedding");
+  const [isMobileView, setIsMobileView] = useState(false);
+  const [isAnimating, setAnimating] = useState(false);
 
   const handleSetActivePages = (message: string) => {
     setActivePages(message)
   };
 
+  const handleSetAnimating = () => {
+    setAnimating(!isAnimating);
+  };
+
+  useEffect(() => {
+    // Do something when count changes
+    
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth <= 1024); // Adjust the breakpoint as per your needs
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Initial check on component mount
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <div className='mainContainer'>
-      <CoverPages name={'name'} />
-      <div className='content'>
-        <MainComponent activePages={activePages}/>
-        <NavbarPages onNavClick={handleSetActivePages} activeNav={activePages}/>
-      </div>
+      <CoverPages name={'name'} onInvitationClick={handleSetAnimating} isAnimate={isAnimating} />
+      {isAnimating &&
+        <div className='content'>
+          <MainComponent activePages={activePages}/>
+          <NavbarPages onNavClick={handleSetActivePages} activeNav={activePages}/>
+        </div>
+      }
+
 
     </div>
   );
