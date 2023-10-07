@@ -58,7 +58,7 @@ const CoverPagesDesktop: React.FC<CoverPagesProps> = ({ name, isAnimate, onInvit
       animate={{ width: !isAnimate ? "calc(100% + 480px)" : "100%", opacity: 1, display: 'flex' }}
       transition={{ duration: 2, delay: 1 }}
     >
-      <CoverParticles>              
+      <CoverParticles name={'polygon'}>               
       </CoverParticles>
     
       <div className={classes.widgetWrap}>
@@ -95,7 +95,7 @@ const CoverPagesMobile: React.FC<CoverPagesProps> = ({ name, isAnimate, onInvita
       animate={{ transform: !isAnimate ? 'translateY(0)' : 'translateY(-100vh)', opacity: 1 }}
       transition={{ duration: 2, delay: 1 }}
     >
-      <CoverParticles>              
+      <CoverParticles name={'background'}>              
       </CoverParticles>
       <div className={classes.widgetWrap}>
         <h3>You Are Invited!</h3>

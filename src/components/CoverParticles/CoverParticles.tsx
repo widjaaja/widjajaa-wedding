@@ -1,16 +1,20 @@
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback } from "react";
 import type { Container, Engine } from "tsparticles-engine";
 import Particles from "react-particles";
 //import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
 import { loadSlim } from "tsparticles-slim"; // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
 import { motion } from "framer-motion";
 
-import config from "../../assets/Json/multiplePolygonMasks.json";
+import polygonPresets from "../../assets/Json/multiplePolygonMasks.json";
+import backgroundPresets from "../../assets/Json/background.json";
 import classes from './CoverParticles.module.scss';
 
+interface CoverParticlesProps {
+    name: string;
+  }
 
-const CoverParticles: React.FC<any> = () => {
-    const particlesData : any = config;
+const CoverParticles: React.FC<any> = ({name}) => {
+    const particlesData : any = name === 'polygon' ? polygonPresets : backgroundPresets;
     const particlesInit = useCallback(async (engine: Engine) => {
         console.log(engine);
 
