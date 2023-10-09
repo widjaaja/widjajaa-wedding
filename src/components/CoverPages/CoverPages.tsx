@@ -65,22 +65,22 @@ const CoverPagesDesktop: React.FC<CoverPagesProps> = ({ name, isAnimate, onInvit
         <h3>You Are Invited!</h3>
         <span className={classes.description}>Bapak/Ibu/Saudara/i</span>
         <span className={classes.guest}>Tamu Undangan</span>
-        <AnimatePresence mode='sync'>
-          {!isAnimate && 
-            <motion.button 
-              onClick={onInvitationClick} 
-              className={classes.btnExpand}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ width: '60px', opacity: 0 }}
-              transition={{ type: "spring", duration: 3 }}
-            >
-              <i className="fa-duotone fa-envelope"></i>
-              <motion.span exit={{ display: "none" }}>Buka Undangan</motion.span>
-            </motion.button>
-          }
-        </AnimatePresence>
-
-
+        <div className={classes.buttonContent}>
+          <AnimatePresence mode='sync'>
+            {!isAnimate && 
+              <motion.button 
+                onClick={onInvitationClick} 
+                className={classes.btnExpand}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ width: '60px', opacity: 0 }}
+                transition={{ type: "spring", duration: 3 }}
+              >
+                <i className="fa-duotone fa-envelope"></i>
+                <motion.span exit={{ display: "none" }}>Buka Undangan</motion.span>
+              </motion.button>
+            }
+          </AnimatePresence>
+        </div>
       </div>
     </motion.div>
   );

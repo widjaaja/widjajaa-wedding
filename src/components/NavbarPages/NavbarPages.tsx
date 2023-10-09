@@ -30,8 +30,6 @@ const NavbarPages: React.FC<NavbarPagesProps> = ({ onNavClick, activeNav }) => {
   const handleNavClick = (message: string, pos: string) => {
     const el = scrollRef.current;
 
-
-
     switch (pos) {
       case 'left':
         el.scrollTo({
@@ -84,6 +82,10 @@ const NavbarPages: React.FC<NavbarPagesProps> = ({ onNavClick, activeNav }) => {
           <div onClick={() => handleNavClick('gifts', 'right')} className={`${classes.ItemNav} ${activeNav === 'gifts' && classes.Selected}`}>
             <i className="fa-solid fa-gifts"></i>
             <span>Gifts</span>
+          </div>
+          <div onClick={() => handleNavClick('wish', 'right')} className={`${classes.ItemNav} ${activeNav === 'wish' && classes.Selected}`}>
+            <i className="fa-solid fa-comments"></i>
+            <span>Wish</span>
           </div>
         </div>
     </Draggable>

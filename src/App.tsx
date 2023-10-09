@@ -6,6 +6,7 @@ import Event from './pages/Event/Event';
 import Location from './pages/Location/Location';
 import Protocol from './pages/Protocol/Protocol';
 import Gift from './pages/Gift/Gift';
+import Wish from './pages/Wish/Wish';
 
 import CoverPages from "./components/CoverPages/CoverPages";
 import NavbarPages from "./components/NavbarPages/NavbarPages";
@@ -66,6 +67,7 @@ const MainComponent: React.FC<AppState> = ({ activePages }) => {
     case "location":  return <Location name={'name'}/>;
     case "protocol":  return <Protocol name={'name'}/>;
     case "gifts":  return <Gift name={'name'}/>;
+    case "wish":  return <Wish name={'name'}/>;
 
     default:      return <Home name={'name'}/>;
   }
